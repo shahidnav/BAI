@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CD7FFD1A-8427-48AE-A642-140097FBE051}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bai.NavigationSystem</RootNamespace>
+    <AssemblyName>Bai.NavigationSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.1.1\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.104.2.0\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BureauApi\GetDirectionsResponse.cs" />
+    <Compile Include="BureauApi\IMissionControlProxy.cs" />
+    <Compile Include="BureauApi\LaunchProbeResponse.cs" />
+    <Compile Include="BureauApi\MissionControlProxy.cs" />
+    <Compile Include="BureauApi\MissionControlProxyBase.cs" />
+    <Compile Include="Command\CommandBuilder.cs" />
+    <Compile Include="Command\CommandInvoker.cs" />
+    <Compile Include="Command\CommandType.cs" />
+    <Compile Include="Command\ProbeLaunchCommand.cs" />
+    <Compile Include="Command\ProbeNavigateCommand.cs" />
+    <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Command\ICommandBuilder.cs" />
+    <Compile Include="Command\ICommandInvoker.cs" />
+    <Compile Include="Command\IProbeNavigateCommand.cs" />
+    <Compile Include="Command\IProbeLaunchCommand.cs" />
+    <Compile Include="Command\ISearchAreaSetSizeCommand.cs" />
+    <Compile Include="Command\SearchAreaSetSizeCommand.cs" />
+    <Compile Include="ControlCenter.cs" />
+    <Compile Include="IControlCenter.cs" />
+    <Compile Include="Probe\Orientation.cs" />
+    <Compile Include="Probe\IProbe.cs" />
+    <Compile Include="Probe\Movement.cs" />
+    <Compile Include="Probe\Probe.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\ConsoleProbeReportBuilder.cs" />
+    <Compile Include="Report\IProbeReportBuilder.cs" />
+    <Compile Include="SearchArea\ISearchArea.cs" />
+    <Compile Include="SearchArea\Point.cs" />
+    <Compile Include="SearchArea\Size.cs" />
+    <Compile Include="SearchArea\Universe.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
